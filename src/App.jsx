@@ -5,7 +5,7 @@ import Skills from "./components/skills";
 import Projects from "./components/projects";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
-import "./styles.css";  // make sure this is correct
+import "./styles.css";  
 
 function App() {
   return (
