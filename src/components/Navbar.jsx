@@ -22,15 +22,26 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Persist dark mode using localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem("darkMode") === "true";
+    setDarkMode(saved);
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
+
   return (
     <nav className={`navbar ${darkMode ? "dark" : ""}`}>
       <h1 className="logo">Your Name</h1>
       <ul className="nav-links">
-        <li className={active === "hero" ? "active" : ""}><a href="#hero">Home</a></li>
-        <li className={active === "about" ? "active" : ""}><a href="#about">About</a></li>
-        <li className={active === "skills" ? "active" : ""}><a href="#skills">Skills</a></li>
-        <li className={active === "projects" ? "active" : ""}><a href="#projects">Projects</a></li>
-        <li className={active === "contact" ? "active" : ""}><a href="#contact">Contact</a></li>
+        {["hero","about","skills","projects","contact"].map((id) => (
+          <li key={id} className={active === id ? "active" : ""}>
+            <a href={`#${id}`}>{id.charAt(0).toUpperCase() + id.slice(1)}</a>
+          </li>
+        ))}
       </ul>
       <button onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? "Light" : "Dark"}
@@ -40,4 +51,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

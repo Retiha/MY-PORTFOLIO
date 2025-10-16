@@ -168,4 +168,51 @@ body.dark .btn-outline {
   color: #007bff;
   border-color: #007bff;
 }
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-top: 1rem;
+}
+body.dark {
+  background: #111;
+  color: #fff;
+}
+
+body.dark .btn {
+  background: #007bff;
+  color: white;
+}
+
+body.dark .btn-outline {
+  color: #007bff;
+  border-color: #007bff;
+}
+.skill-level {
+  height: 100%;
+  width: 0; /* start at 0, animate with JS */
+  background: #007bff;
+  border-radius: 10px;
+  transition: width 2s ease;
+}
+.project-card.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Add this class dynamically with JS when filtered projects are shown */
+.project-card.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-categories button.active {
+  background: #007bff;
+  color: white;
+}
+.form-status {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: green;
+}
 

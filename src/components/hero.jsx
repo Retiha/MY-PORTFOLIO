@@ -10,12 +10,12 @@ function Hero() {
         className="profile-pic"
       />
       <h1>Hi, I'm Your Name</h1>
-      <h2>
+      <h2 className="hero-subtitle">
         <Typewriter
           words={["Frontend Developer", "React Enthusiast", "Problem Solver"]}
-          loop={true}
+          loop
           cursor
-          cursorStyle="_"
+          cursorStyle="|"
           typeSpeed={70}
           deleteSpeed={50}
         />

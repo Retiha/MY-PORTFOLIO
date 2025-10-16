@@ -23,10 +23,7 @@ function Skills() {
       },
       { threshold: 0.5 }
     );
-
-    if (containerRef.current) observer.observe(containerRef.current);
-
-    return () => observer.disconnect();
+    observer.observe(containerRef.current);
   }, []);
 
   return (

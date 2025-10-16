@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 
 function Contact() {
+  const [status, setStatus] = useState("");
+
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
-      .then(() => alert("Message sent successfully!"))
-      .catch(() => alert("Failed to send message."));
+      .then(() => setStatus("Message sent successfully!"))
+      .catch(() => setStatus("Failed to send message."));
     e.target.reset();
   };
 
@@ -18,6 +20,7 @@ function Contact() {
         <input type="email" name="email" placeholder="Email" required />
         <textarea name="message" placeholder="Message" required></textarea>
         <button type="submit" className="btn">Send</button>
+        <p className="form-status">{status}</p>
       </form>
     </section>
   );
